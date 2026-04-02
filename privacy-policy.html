@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Session Helper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f5f0e8;
+    --parchment-dark: #e8e0d0;
+    --ink: #2c2416;
+    --ink-light: #5a4d3a;
+    --ink-faint: #8a7d6a;
+    --accent: #8b4513;
+    --accent-light: #a0522d;
+    --rule: #d4c9b5;
+    --card: #faf6ef;
+  }
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at 0% 0%, rgba(139,69,19,0.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 100% 30%, rgba(180,130,60,0.09) 0%, transparent 35%),
+      radial-gradient(ellipse at 50% 100%, rgba(100,60,20,0.10) 0%, transparent 45%),
+      linear-gradient(180deg, #f5f0e8 0%, #ece3d2 35%, #f0e8da 60%, #e8dcc8 100%);
+  }
+  nav {
+    position: fixed; top: 0; width: 100%; padding: 0.75rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(245,240,232,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule); z-index: 10;
+  }
+  nav .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+  nav .logo img { height: 28px; }
+  nav .logo span { font-family: 'Crimson Pro', Georgia, serif; font-size: 1rem; font-weight: 600; color: var(--ink); }
+  nav .links { font-family: 'Inter', system-ui, sans-serif; }
+  nav .links a { font-size: 0.75rem; color: var(--ink-faint); text-decoration: none; margin-left: 1.5rem; }
+  nav .links a:hover { color: var(--accent); }
+  nav .links a.active { color: var(--ink); }
+  main {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .updated {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    margin-bottom: 2.5rem;
+  }
+  h2 {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+  p {
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  ul, ol {
+    margin-bottom: 0.75rem;
+    padding-left: 1.25rem;
+  }
+  li {
+    font-size: 1rem;
+    color: var(--ink-light);
+    margin-bottom: 0.35rem;
+    line-height: 1.4;
+  }
+  strong { color: var(--ink); }
+  code {
+    font-size: 0.85rem;
+    background: var(--parchment-dark);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-light); }
+  footer {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo"><img src="open-voice-project/logo_transparent.png" alt=""><span>Session Helper</span></a>
+  <div class="links">
+    <a href="https://github.com/sessionhelper/ttrpg-collector">GitHub</a>
+    <a href="https://ko-fi.com/sessionhelper"><img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png" alt="" style="height:14px;vertical-align:middle;margin-right:0.3rem;">Ko-fi</a>
+    <a href="mailto:admin@sessionhelper.com">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 2026-04-01</p>
+
+  <h2>What this bot does</h2>
+  <p>The TTRPG Collector Bot records tabletop RPG voice sessions in Discord for the purpose of building an open, community-contributed audio transcription dataset. This dataset will be released under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).</p>
+
+  <h2>What data we collect</h2>
+
+  <h3>Audio recordings</h3>
+  <ul>
+    <li>Per-speaker audio tracks from Discord voice channels</li>
+    <li>Recording only begins after every participant in the voice channel explicitly consents via the in-channel prompt. If anyone declines, no audio is captured.</li>
+    <li>Audio is recorded in FLAC format (48kHz, lossless)</li>
+  </ul>
+
+  <h3>Session metadata</h3>
+  <ul>
+    <li>Game system (e.g., "D&amp;D 5e") — provided optionally by the session initiator</li>
+    <li>Campaign name — provided optionally by the session initiator</li>
+    <li>Session number — provided optionally by the session initiator</li>
+    <li>Session start/end timestamps</li>
+    <li>Number of participants</li>
+    <li>Audio quality metrics</li>
+  </ul>
+
+  <h3>Consent records</h3>
+  <ul>
+    <li>A record of each user's consent decision (accept or decline)</li>
+    <li>Timestamp of consent</li>
+  </ul>
+
+  <h3>GM session notes</h3>
+  <ul>
+    <li>Text notes submitted voluntarily by the game master after a session</li>
+    <li>GMs are reminded not to include personal information about players</li>
+  </ul>
+
+  <h3>What we do not collect</h3>
+  <ul>
+    <li>Message content from text channels</li>
+    <li>User profile information beyond what is needed for consent tracking</li>
+    <li>Server configuration or channel lists</li>
+    <li>Direct messages (except the consent notification DM to mid-session joiners)</li>
+  </ul>
+
+  <h2>How we identify you</h2>
+
+  <h3>In our private storage</h3>
+  <ul>
+    <li>Your Discord user ID and display name are stored in a private file (<code>pii.json</code>) that is used only for internal session management</li>
+    <li>This file is <strong>never</strong> included in the public dataset</li>
+  </ul>
+
+  <h3>In the public dataset</h3>
+  <ul>
+    <li>Your Discord user ID is replaced with a pseudonymized identifier (a one-way hash)</li>
+    <li>Your display name is not included</li>
+    <li>Your audio track filename uses the pseudonymized identifier</li>
+    <li>There is no way to reverse the pseudonymization to recover your Discord identity</li>
+  </ul>
+
+  <h2>Where data is stored</h2>
+  <ul>
+    <li><strong>During recording:</strong> Audio is buffered to the bot's local disk</li>
+    <li><strong>After recording:</strong> Session bundles are uploaded to Hetzner Object Storage (encrypted at rest)</li>
+    <li><strong>Public dataset:</strong> Validated sessions are published on HuggingFace</li>
+  </ul>
+
+  <h2>How data is used</h2>
+  <p>Your contributed audio will be:</p>
+  <ol>
+    <li>Transcribed using automatic speech recognition</li>
+    <li>Reviewed for personal information</li>
+    <li>Included in a public dataset for training and evaluating transcription models</li>
+    <li>Released under CC BY-SA 4.0</li>
+  </ol>
+
+  <h2>Your rights</h2>
+
+  <h3>Before dataset publication</h3>
+  <ul>
+    <li>You may request deletion of your audio from any session by contacting the project maintainer</li>
+    <li>Your consent is revocable at any time before your audio is included in a published dataset release</li>
+  </ul>
+
+  <h3>After dataset publication</h3>
+  <ul>
+    <li>Published dataset releases under CC BY-SA 4.0 cannot be recalled, as the license grants irrevocable rights to recipients</li>
+    <li>However, your audio will be removed from future dataset releases upon request</li>
+  </ul>
+
+  <h3>GDPR (EU users)</h3>
+  <ul>
+    <li><strong>Lawful basis:</strong> Explicit consent (Article 6(1)(a) and Article 9(2)(a) for biometric data)</li>
+    <li><strong>Right to access:</strong> You may request a copy of your data</li>
+    <li><strong>Right to erasure:</strong> You may request deletion (subject to the limitations above regarding published releases)</li>
+    <li><strong>Right to withdraw consent:</strong> You may withdraw consent at any time</li>
+    <li><strong>Data controller contact:</strong> See contact information below</li>
+  </ul>
+
+  <h2>Data retention</h2>
+  <ul>
+    <li>Raw audio files are retained in private storage until included in a dataset release</li>
+    <li>Sessions that are not included in a release are deleted within 90 days</li>
+    <li>Consent records are retained indefinitely as legal documentation</li>
+  </ul>
+
+  <h2>Age requirement</h2>
+  <p>You must be at least 18 years old to consent to recording. If you are under 18, you must have parental or guardian consent.</p>
+
+  <h2>Third-party services</h2>
+  <ul>
+    <li><strong>Discord:</strong> Audio is captured via Discord's voice API. Discord's own privacy policy applies to your use of Discord.</li>
+    <li><strong>Hetzner Object Storage:</strong> Session data is stored using Hetzner's S3-compatible storage service.</li>
+    <li><strong>HuggingFace:</strong> The public dataset is hosted on HuggingFace's platform.</li>
+  </ul>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this privacy policy. Changes will be reflected in the "Last updated" date above. Continued use of the bot after changes constitutes acceptance.</p>
+
+  <h2>Contact</h2>
+  <p>For data requests, questions, or concerns:</p>
+  <ul>
+    <li>GitHub: <a href="https://github.com/sessionhelper/ttrpg-collector">sessionhelper/ttrpg-collector</a></li>
+    <li>Email: <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a></li>
+  </ul>
+</main>
+
+<footer>&copy; 2026 Session Helper LLC</footer>
+
+</body>
+</html>

@@ -1,47 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Session Helper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f5f0e8;
+    --parchment-dark: #e8e0d0;
+    --ink: #2c2416;
+    --ink-light: #5a4d3a;
+    --ink-faint: #8a7d6a;
+    --accent: #8b4513;
+    --accent-light: #a0522d;
+    --rule: #d4c9b5;
+  }
   body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.7;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: system-ui, -apple-system, sans-serif;
-    background: #0f0f0f;
-    color: #e1e1e1;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at 0% 0%, rgba(139,69,19,0.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 100% 30%, rgba(180,130,60,0.09) 0%, transparent 35%),
+      radial-gradient(ellipse at 50% 100%, rgba(100,60,20,0.10) 0%, transparent 45%),
+      linear-gradient(180deg, #f5f0e8 0%, #ece3d2 35%, #f0e8da 60%, #e8dcc8 100%);
+  }
+  .center {
+    text-align: center;
+    position: relative;
+  }
+  .center img {
+    height: 80px;
+    margin-bottom: 1.5rem;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
   }
   p {
-    font-size: 0.95rem;
-    color: #666;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
   }
-  a { color: #666; }
+  .links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
+  }
+  .links a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .links a:hover {
+    color: var(--accent);
+    border-color: var(--accent-light);
+  }
   footer {
     position: fixed;
     bottom: 2rem;
-    font-size: 0.8rem;
-    color: #444;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
     text-align: center;
   }
-  footer a { color: #444; }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
-<h1>Session Helper</h1>
-<p>Coming soon</p>
+<div class="center">
+  <img src="open-voice-project/logo_transparent.png" alt="Session Helper">
+  <h1>Session Helper</h1>
+  <p>Coming soon</p>
+  <div class="links">
+    <a href="/open-voice-project/">Open Voice Project</a>
+    <a href="https://github.com/sessionhelper">GitHub</a>
+  </div>
+</div>
 <footer>
-  &copy; 2026 Session Helper LLC &mdash; <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a>
+  &copy; 2026 Session Helper LLC &mdash;
+  <a href="/privacy-policy.html">Privacy</a> &middot;
+  <a href="/terms-of-service.html">Terms</a> &middot;
+  <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a>
 </footer>
 </body>
 </html>

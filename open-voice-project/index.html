@@ -98,15 +98,16 @@
   .feature:hover { border-top-color: var(--accent); }
   .feature .title { font-family: 'Inter', system-ui, sans-serif; font-size: 0.8rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
   .feature .desc { font-size: 0.95rem; color: var(--ink-faint); line-height: 1.5; }
-  .flow-section { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; margin: 1.5rem 0; }
-  .flow { display: flex; flex-direction: column; }
-  .flow .step { padding: 0.75rem 1rem; background: var(--card); border: 1px solid var(--rule); border-bottom: none; display: flex; align-items: baseline; gap: 0.75rem; }
+  .flow-section { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; margin: 1.5rem 0; }
+  .flow { display: flex; flex-direction: column; height: 100%; }
+  .flow .step { padding: 0.75rem 1rem; background: var(--card); border: 1px solid var(--rule); border-bottom: none; display: flex; align-items: baseline; gap: 0.75rem; flex: 1; }
   .flow .step:first-child { border-radius: 4px 4px 0 0; }
   .flow .step:last-child { border-radius: 0 0 4px 4px; border-bottom: 1px solid var(--rule); }
   .flow .step .num { font-family: 'Inter', system-ui, sans-serif; font-size: 0.65rem; font-weight: 500; color: var(--accent); min-width: 1.2rem; }
   .flow .step .text { font-size: 0.9rem; color: var(--ink-light); line-height: 1.3; }
   .flow .step code { font-size: 0.8rem; background: var(--parchment-dark); padding: 0.1rem 0.3rem; border-radius: 3px; font-family: 'Courier New', monospace; }
   .consent-screenshot { border-radius: 4px; border: 1px solid var(--rule); width: 100%; display: block; box-shadow: 0 2px 8px rgba(44,36,22,0.1); }
+  .flow-screenshots { display: flex; flex-direction: column; gap: 1.25rem; justify-content: space-between; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
   .grid-3 .cell { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(44,36,22,0.05); }
   .cell .label { font-family: 'Inter', system-ui, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 0.4rem; }
@@ -197,19 +198,40 @@
   <p>A Discord bot joins your voice channel, collects consent from every participant, and records each speaker as a separate lossless audio track.</p>
   <div class="flow-section">
     <div class="flow">
-      <div class="step"><div class="num">01</div><div class="text">GM runs <code>/record</code> in a text channel</div></div>
-      <div class="step"><div class="num">02</div><div class="text">Bot posts consent prompt — each player accepts or declines</div></div>
-      <div class="step"><div class="num">03</div><div class="text">Bot joins voice and records per-speaker audio</div></div>
-      <div class="step"><div class="num">04</div><div class="text">GM runs <code>/stop</code> — or bot auto-stops when channel empties</div></div>
-      <div class="step"><div class="num">05</div><div class="text">Audio is converted to FLAC, pseudonymized, and uploaded</div></div>
+      <div class="step"><div class="num">01</div><div class="text">GM runs <code>/record</code> in a text channel. Bot detects voice participants and posts a consent prompt.</div></div>
+      <div class="step"><div class="num">02</div><div class="text">Each player clicks Accept or Decline. Recording starts once everyone responds.</div></div>
+      <div class="step"><div class="num">03</div><div class="text">After accepting, players can toggle "No LLM Training" or "No Public Release." Defaults to fully open.</div></div>
+      <div class="step"><div class="num">04</div><div class="text">Bot joins voice and announces "Recording has begun." Each speaker is captured as a separate stream.</div></div>
+      <div class="step"><div class="num">05</div><div class="text">GM runs <code>/stop</code>. Audio is pseudonymized and uploaded. Bot announces "Recording complete."</div></div>
+      <div class="step"><div class="num">06</div><div class="text">Participants can review transcripts, flag private info, correct lines, and manage consent anytime on the web portal.</div></div>
     </div>
-    <img src="consent_window.png" alt="Discord consent prompt" class="consent-screenshot">
+    <div class="flow-screenshots">
+      <img src="commands.png" alt="Bot slash commands" class="consent-screenshot">
+      <img src="consent.png" alt="Consent prompt" class="consent-screenshot">
+      <img src="restrictions.png" alt="Data restriction toggles" class="consent-screenshot">
+      <img src="stop.png" alt="Session complete" class="consent-screenshot">
+    </div>
   </div>
   <div style="margin-top:1.5rem">
     <a href="https://discord.com/oauth2/authorize?client_id=1489017576125366453&permissions=2184202240&scope=bot+applications.commands" class="btn">Add to your Discord server</a>
   </div>
 </section>
 </div>
+
+<section>
+  <div class="section-label">Your data, your rules</div>
+  <h2>Participant portal</h2>
+  <p>Every participant can sign in with Discord and manage their recordings. You stay in control of your voice data — before, during, and after publication.</p>
+  <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 0.75rem; color: var(--ink-faint); font-style: italic;">Under construction — coming soon.</p>
+  <div class="features">
+    <div class="feature"><div class="title">Review transcripts</div><div class="desc">Read through your session transcripts with per-line audio playback. See exactly what was captured.</div></div>
+    <div class="feature"><div class="title">Flag private info</div><div class="desc">Spot a phone number or address in pre-game chatter? One click to flag it. Flagged lines are excluded from the published dataset.</div></div>
+    <div class="feature"><div class="title">Correct transcriptions</div><div class="desc">Fix what the speech recognition got wrong. Every correction improves the dataset — and produces free ASR training data.</div></div>
+    <div class="feature"><div class="title">Change permissions</div><div class="desc">Toggle "No LLM Training" or "No Public Release" per session, anytime. Upgrade or restrict — your choice.</div></div>
+    <div class="feature"><div class="title">Download your data</div><div class="desc">Export all your sessions, transcripts, and audio files. Full GDPR data portability.</div></div>
+    <div class="feature"><div class="title">Withdraw consent</div><div class="desc">Changed your mind? Withdraw consent for any session. If it hasn't been published yet, your audio is permanently deleted from storage.</div></div>
+  </div>
+</section>
 
 <div class="band">
 <section>

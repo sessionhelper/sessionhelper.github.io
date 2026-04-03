@@ -133,18 +133,18 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: 2026-04-01</p>
+  <p class="updated">Last updated: 2026-04-02 &nbsp;|&nbsp; Data controller: Session Helper LLC, New Mexico</p>
 
   <h2>What this bot does</h2>
-  <p>The TTRPG Collector Bot records tabletop RPG voice sessions in Discord for the purpose of building an open, community-contributed audio transcription dataset. This dataset will be released under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).</p>
+  <p>The Session Helper Bot ("the Bot") records tabletop RPG voice sessions in Discord for the Open Voice Project, a community-contributed audio dataset for speech research and transcription. Recorded audio is licensed according to each participant's chosen restrictions (see "Licensing model" below).</p>
 
   <h2>What data we collect</h2>
 
   <h3>Audio recordings</h3>
   <ul>
-    <li>Per-speaker audio tracks from Discord voice channels</li>
+    <li>Per-speaker audio tracks from Discord voice channels, recorded as raw PCM (48kHz, 16-bit, mono)</li>
     <li>Recording only begins after every participant in the voice channel explicitly consents via the in-channel prompt. If anyone declines, no audio is captured.</li>
-    <li>Audio is recorded in FLAC format (48kHz, lossless)</li>
+    <li>The bot plays a voice announcement when recording begins and ends</li>
   </ul>
 
   <h3>Session metadata</h3>
@@ -161,6 +161,7 @@
   <ul>
     <li>A record of each user's consent decision (accept or decline)</li>
     <li>Timestamp of consent</li>
+    <li>License restriction flags chosen by each participant (see "Licensing model")</li>
   </ul>
 
   <h3>GM session notes</h3>
@@ -174,69 +175,94 @@
     <li>Message content from text channels</li>
     <li>User profile information beyond what is needed for consent tracking</li>
     <li>Server configuration or channel lists</li>
-    <li>Direct messages (except the consent notification DM to mid-session joiners)</li>
+    <li>Direct messages</li>
   </ul>
+
+  <h2>Licensing model</h2>
+  <p>Instead of a single license, participants control how their audio may be used through two independent flags:</p>
+  <ul>
+    <li><strong>no_llm_training</strong> — If set, your audio may not be used for training large language models or similar AI systems</li>
+    <li><strong>no_public_release</strong> — If set, your audio is kept in private storage and not included in the public dataset</li>
+  </ul>
+  <p>By default, both flags are off, meaning your audio is released under CC&nbsp;BY-SA&nbsp;4.0 with no additional restrictions. You can toggle these flags at any time before publication through the participant portal or the Bot's restriction buttons.</p>
 
   <h2>How we identify you</h2>
 
   <h3>In our private storage</h3>
   <ul>
-    <li>Your Discord user ID and display name are stored in a private file (<code>pii.json</code>) that is used only for internal session management</li>
+    <li>Your Discord user ID and display name are stored in a private file (<code>pii.json</code>) used only for internal session management</li>
     <li>This file is <strong>never</strong> included in the public dataset</li>
   </ul>
 
   <h3>In the public dataset</h3>
   <ul>
-    <li>Your Discord user ID is replaced with a pseudonymized identifier (a one-way hash)</li>
+    <li>Your Discord user ID is pseudonymized using a SHA-256 hash, truncated to 16 hex characters</li>
     <li>Your display name is not included</li>
     <li>Your audio track filename uses the pseudonymized identifier</li>
-    <li>There is no way to reverse the pseudonymization to recover your Discord identity</li>
+    <li>The pseudonymization is one-way — there is no practical way to reverse it to recover your Discord identity</li>
   </ul>
 
   <h2>Where data is stored</h2>
   <ul>
     <li><strong>During recording:</strong> Audio is buffered to the bot's local disk</li>
-    <li><strong>After recording:</strong> Session bundles are uploaded to Hetzner Object Storage (encrypted at rest)</li>
-    <li><strong>Public dataset:</strong> Validated sessions are published on HuggingFace</li>
+    <li><strong>After recording:</strong> Session bundles are uploaded to Hetzner Object Storage (S3-compatible, encrypted at rest)</li>
+    <li><strong>Public dataset:</strong> Validated sessions (where participants have not set <code>no_public_release</code>) are published on HuggingFace</li>
   </ul>
 
   <h2>How data is used</h2>
   <p>Your contributed audio will be:</p>
   <ol>
     <li>Transcribed using automatic speech recognition</li>
-    <li>Reviewed for personal information</li>
-    <li>Included in a public dataset for training and evaluating transcription models</li>
-    <li>Released under CC BY-SA 4.0</li>
+    <li>Made available for review and correction through the participant portal</li>
+    <li>Reviewed for personal information (automated and manual)</li>
+    <li>Included in a public dataset for training and evaluating transcription models (unless you set <code>no_public_release</code>)</li>
+    <li>Licensed according to your chosen restriction flags</li>
   </ol>
+
+  <h2>Participant portal</h2>
+  <p>Every participant can sign in to the participant portal with their Discord account to:</p>
+  <ul>
+    <li><strong>Review transcripts</strong> — Read through session transcripts with per-line audio playback</li>
+    <li><strong>Correct transcriptions</strong> — Fix speech recognition errors (corrections also serve as training data)</li>
+    <li><strong>Flag private info</strong> — Mark lines containing personal information for exclusion from the dataset</li>
+    <li><strong>Change license restrictions</strong> — Toggle <code>no_llm_training</code> or <code>no_public_release</code> per session at any time</li>
+    <li><strong>Download your data</strong> — Export all your sessions, transcripts, and audio files</li>
+    <li><strong>Withdraw consent</strong> — Revoke consent for any session</li>
+  </ul>
 
   <h2>Your rights</h2>
 
   <h3>Before dataset publication</h3>
   <ul>
-    <li>You may request deletion of your audio from any session by contacting the project maintainer</li>
-    <li>Your consent is revocable at any time before your audio is included in a published dataset release</li>
+    <li>You may withdraw consent for any session through the participant portal or by emailing <a href="mailto:data@sessionhelper.com">data@sessionhelper.com</a></li>
+    <li>If your audio has not yet been included in a published dataset release, it will be permanently deleted from storage upon withdrawal</li>
   </ul>
 
   <h3>After dataset publication</h3>
   <ul>
     <li>Published dataset releases under CC BY-SA 4.0 cannot be recalled, as the license grants irrevocable rights to recipients</li>
-    <li>However, your audio will be removed from future dataset releases upon request</li>
+    <li>However, your audio will be removed from all future dataset releases upon request</li>
+    <li>We will make reasonable efforts to notify known redistributors, but cannot guarantee deletion from third-party copies</li>
   </ul>
 
   <h3>GDPR (EU users)</h3>
   <ul>
-    <li><strong>Lawful basis:</strong> Explicit consent (Article 6(1)(a) and Article 9(2)(a) for biometric data)</li>
-    <li><strong>Right to access:</strong> You may request a copy of your data</li>
+    <li><strong>Lawful basis:</strong> Explicit consent (Article 6(1)(a) and Article 9(2)(a) for voice data as biometric data)</li>
+    <li><strong>Right to access:</strong> You may request a copy of all data we hold about you, or download it directly from the participant portal</li>
+    <li><strong>Right to rectification:</strong> You may correct your transcripts through the participant portal</li>
     <li><strong>Right to erasure:</strong> You may request deletion (subject to the limitations above regarding published releases)</li>
-    <li><strong>Right to withdraw consent:</strong> You may withdraw consent at any time</li>
-    <li><strong>Data controller contact:</strong> See contact information below</li>
+    <li><strong>Right to data portability:</strong> You may export your data from the participant portal</li>
+    <li><strong>Right to withdraw consent:</strong> You may withdraw consent at any time through the portal or by email</li>
+    <li><strong>Right to lodge a complaint:</strong> You have the right to lodge a complaint with your local data protection authority</li>
+    <li><strong>Data controller contact:</strong> <a href="mailto:data@sessionhelper.com">data@sessionhelper.com</a></li>
   </ul>
 
   <h2>Data retention</h2>
   <ul>
-    <li>Raw audio files are retained in private storage until included in a dataset release</li>
-    <li>Sessions that are not included in a release are deleted within 90 days</li>
+    <li>Raw audio files are retained in private storage until included in a dataset release or deleted upon consent withdrawal</li>
+    <li>Sessions not included in a release are deleted within 90 days</li>
     <li>Consent records are retained indefinitely as legal documentation</li>
+    <li>Pseudonymized data in published datasets is retained indefinitely under the applicable license</li>
   </ul>
 
   <h2>Age requirement</h2>
@@ -245,18 +271,18 @@
   <h2>Third-party services</h2>
   <ul>
     <li><strong>Discord:</strong> Audio is captured via Discord's voice API. Discord's own privacy policy applies to your use of Discord.</li>
-    <li><strong>Hetzner Object Storage:</strong> Session data is stored using Hetzner's S3-compatible storage service.</li>
+    <li><strong>Hetzner Object Storage:</strong> Session data is stored using Hetzner's S3-compatible storage service (EU-based).</li>
     <li><strong>HuggingFace:</strong> The public dataset is hosted on HuggingFace's platform.</li>
   </ul>
 
   <h2>Changes to this policy</h2>
-  <p>We may update this privacy policy. Changes will be reflected in the "Last updated" date above. Continued use of the bot after changes constitutes acceptance.</p>
+  <p>We may update this privacy policy. Changes will be reflected in the "Last updated" date above. If we make material changes to how we handle your data, we will notify active participants through the Bot or the participant portal. Continued use of the Bot after changes constitutes acceptance.</p>
 
   <h2>Contact</h2>
-  <p>For data requests, questions, or concerns:</p>
   <ul>
-    <li>GitHub: <a href="https://github.com/sessionhelper/ttrpg-collector">sessionhelper/ttrpg-collector</a></li>
-    <li>Email: <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a></li>
+    <li><strong>Data requests (GDPR, deletion, access):</strong> <a href="mailto:data@sessionhelper.com">data@sessionhelper.com</a></li>
+    <li><strong>General inquiries:</strong> <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/sessionhelper/ttrpg-collector">sessionhelper/ttrpg-collector</a></li>
   </ul>
 </main>
 

@@ -149,8 +149,8 @@
   <p class="lead">
     We're building an open dataset of tabletop RPG session recordings from
     real gaming groups on Discord. Every participant consents before recording.
-    Each speaker is a separate track. Released under CC&nbsp;BY-SA&nbsp;4.0 for
-    speech research, transcription, and AI.
+    Each speaker is a separate track. Participants choose their own license
+    restrictions. Released for speech research, transcription, and AI.
     <a href="#how-it-works">See how it works</a>.
   </p>
   <div class="hero-cta">
@@ -178,7 +178,7 @@
       <tr><td><a href="https://github.com/RevanthRameshkumar/CRD3">CRD3</a> (Critical Role)</td><td class="no">Text only</td><td class="no">—</td><td class="no">Scraped</td><td class="yes">Yes</td></tr>
       <tr><td><a href="https://github.com/LiRem101/playing-with-voices">Playing with Voices</a></td><td class="no">YouTube links</td><td class="no">Mixed</td><td class="no">No</td><td class="no">No</td></tr>
       <tr><td><a href="https://huggingface.co/datasets/lara-martin/FIREBALL">FIREBALL</a></td><td class="no">Text only</td><td class="no">—</td><td class="yes">Yes</td><td class="yes">CC BY 4.0</td></tr>
-      <tr><td><strong>Open Voice Project</strong></td><td class="yes">FLAC</td><td class="yes">Per-speaker</td><td class="yes">Explicit</td><td class="yes">CC BY-SA 4.0</td></tr>
+      <tr><td><strong>Open Voice Project</strong></td><td class="yes">Raw PCM</td><td class="yes">Per-speaker</td><td class="yes">Explicit</td><td class="yes">CC BY-SA 4.0 +</td></tr>
     </tbody>
   </table>
   <div class="section-label">Dataset goals</div>
@@ -239,9 +239,9 @@
   <h2>Session bundles</h2>
   <p>Each recording session produces a structured bundle uploaded to secure storage. Discord identities are pseudonymized — the public dataset contains no usernames or IDs.</p>
   <div class="grid-3">
-    <div class="cell"><div class="label">Audio</div><div class="value">Per-speaker FLAC, 48kHz lossless</div></div>
+    <div class="cell"><div class="label">Audio</div><div class="value">Per-speaker raw PCM, 48kHz 16-bit mono</div></div>
     <div class="cell"><div class="label">Metadata</div><div class="value">Game system, duration, participant count</div></div>
-    <div class="cell"><div class="label">Consent</div><div class="value">Pseudonymized records with CC&nbsp;BY-SA&nbsp;4.0 grant</div></div>
+    <div class="cell"><div class="label">Consent</div><div class="value">Pseudonymized records with two-flag license restrictions</div></div>
   </div>
 </section>
 </div>
@@ -249,7 +249,7 @@
 <section>
   <div class="section-label">Status</div>
   <h2>Early collection</h2>
-  <p>We're recording sessions and validating the pipeline. The dataset will be published on HuggingFace under CC&nbsp;BY-SA&nbsp;4.0 once we have enough validated contributions.</p>
+  <p>We're recording sessions and validating the pipeline. The dataset will be published on HuggingFace once we have enough validated contributions. Participants choose their own license restrictions per session.</p>
 </section>
 
 <div class="band">

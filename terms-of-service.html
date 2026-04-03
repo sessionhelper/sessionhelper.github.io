@@ -125,10 +125,10 @@
 
 <main>
   <h1>Terms of Service</h1>
-  <p class="updated">Last updated: 2026-04-01</p>
+  <p class="updated">Last updated: 2026-04-02</p>
 
   <h2>1. Purpose</h2>
-  <p>The TTRPG Collector Bot ("the Bot") records tabletop RPG voice sessions in Discord to build a community-contributed open audio transcription dataset. By using the Bot, you agree to these terms.</p>
+  <p>The Session Helper Bot ("the Bot") records tabletop RPG voice sessions in Discord for the Open Voice Project, a community-contributed audio dataset for speech research and transcription. The Bot and the participant portal are operated by Session Helper LLC, a New Mexico limited liability company. By using the Bot, you agree to these terms.</p>
 
   <h2>2. Eligibility</h2>
   <ul>
@@ -139,19 +139,42 @@
   <h2>3. How it works</h2>
   <ul>
     <li>A server member invokes the <code>/record</code> command to start a recording session.</li>
+    <li>The Bot plays a voice announcement: "This session will be recorded for the Open Voice Project."</li>
     <li>The Bot posts a consent prompt to all members in the voice channel.</li>
-    <li>Recording only begins after every participant in the voice channel explicitly consents. If anyone declines, no audio is captured.</li>
-    <li>Recorded audio is uploaded to cloud storage for processing and eventual inclusion in a public dataset.</li>
+    <li>Recording only begins after every participant in the voice channel explicitly responds. If anyone declines, no audio is captured.</li>
+    <li>Each speaker is recorded as a separate audio track (raw PCM, 48kHz).</li>
+    <li>After accepting, participants can set license restrictions via the Bot's buttons (see "License restrictions" below).</li>
+    <li>When the GM runs <code>/stop</code>, audio is pseudonymized and uploaded to secure storage. The Bot announces "Recording complete."</li>
   </ul>
 
   <h2>4. Consent</h2>
   <ul>
     <li>Recording requires explicit consent from each participant via the Bot's consent prompt.</li>
-    <li>You may decline to be recorded without leaving the voice channel.</li>
-    <li>You may withdraw consent before your audio is included in a published dataset release by contacting the project maintainer.</li>
+    <li>You may decline to be recorded without leaving the voice channel. Declining does not affect your ability to participate in the game.</li>
+    <li>You may withdraw consent at any time through the participant portal or by emailing <a href="mailto:data@sessionhelper.com">data@sessionhelper.com</a>.</li>
+    <li>If your audio has not yet been included in a published dataset release, withdrawal results in permanent deletion from storage.</li>
   </ul>
 
-  <h2>5. Content guidelines</h2>
+  <h2>5. License restrictions</h2>
+  <p>By consenting to recording, you grant a non-exclusive, worldwide license under CC&nbsp;BY-SA&nbsp;4.0 for your audio to be transcribed, included in the dataset, and redistributed under the same license terms.</p>
+  <p>You may apply additional restrictions through two independent flags:</p>
+  <ul>
+    <li><strong>no_llm_training</strong> — Your audio may not be used for training large language models or similar AI systems</li>
+    <li><strong>no_public_release</strong> — Your audio is kept in private storage and not released publicly</li>
+  </ul>
+  <p>By default, both flags are off (fully open). You can change these at any time through the Bot's restriction buttons during a session or through the participant portal after a session. Changing restrictions affects future dataset releases only.</p>
+
+  <h2>6. Participant portal</h2>
+  <p>The participant portal allows you to manage your data after recording:</p>
+  <ul>
+    <li>Review and correct transcripts</li>
+    <li>Flag lines containing private information for exclusion</li>
+    <li>Toggle license restrictions per session</li>
+    <li>Download all your data</li>
+    <li>Withdraw consent for any session</li>
+  </ul>
+
+  <h2>7. Content guidelines</h2>
   <p>You agree not to use the Bot to record:</p>
   <ul>
     <li>Content that violates Discord's Terms of Service or Community Guidelines</li>
@@ -161,47 +184,44 @@
     <li>Content created solely to degrade dataset quality</li>
   </ul>
 
-  <h2>6. GM session notes</h2>
+  <h2>8. GM session notes</h2>
   <ul>
     <li>Session notes submitted via <code>/notes</code> are voluntary contributions.</li>
     <li>You must not include real names, addresses, phone numbers, or other personal information about your players in session notes.</li>
     <li>By submitting notes, you grant a CC BY-SA 4.0 license for their inclusion in the dataset.</li>
   </ul>
 
-  <h2>7. License grant</h2>
-  <p>By consenting to recording, you grant a non-exclusive, worldwide license under CC BY-SA 4.0 for your audio to be:</p>
+  <h2>9. Limitation of liability</h2>
   <ul>
-    <li>Transcribed</li>
-    <li>Included in the public dataset</li>
-    <li>Used for training and evaluating speech and language models</li>
-    <li>Redistributed under the same license terms</li>
+    <li>The Bot and participant portal are provided "as is" without warranties of any kind, express or implied.</li>
+    <li>Session Helper LLC is not responsible for content recorded through the Bot. Responsibility for the content of recordings rests with the participants.</li>
+    <li>Session Helper LLC's total liability to you for any claims arising from your use of the Bot or participant portal is limited to the amount you have paid to Session Helper LLC (which is zero for free users).</li>
+    <li>Session Helper LLC is not liable for any indirect, incidental, consequential, or punitive damages.</li>
+    <li>Users who initiate recordings are responsible for ensuring all participants have consented. Session Helper LLC will process DMCA takedown requests; liability for unauthorized recordings rests with the user who initiated the recording.</li>
+    <li>Session Helper LLC does not guarantee that data will be deleted from all third-party copies after publication. Once audio is included in a published dataset release under CC&nbsp;BY-SA&nbsp;4.0, recipients have irrevocable rights under that license.</li>
   </ul>
 
-  <h2>8. Liability</h2>
-  <ul>
-    <li>The Bot is provided "as is" without warranties of any kind.</li>
-    <li>The project maintainers are not responsible for content recorded through the Bot.</li>
-    <li>Users who submit recordings are responsible for ensuring all participants have consented.</li>
-    <li>The project maintainers will process DMCA takedown requests. Liability for unauthorized recordings rests with the user who initiated the recording.</li>
-  </ul>
+  <h2>10. Data handling</h2>
+  <p>See our <a href="/privacy-policy.html">Privacy Policy</a> for details on data collection, storage, pseudonymization, and your rights.</p>
 
-  <h2>9. Data handling</h2>
-  <p>See our <a href="/privacy-policy.html">Privacy Policy</a> for details on data collection, storage, and your rights.</p>
-
-  <h2>10. Termination</h2>
+  <h2>11. Termination</h2>
   <ul>
-    <li>The project maintainers may remove the Bot from any server or ban users who violate these terms.</li>
+    <li>Session Helper LLC may remove the Bot from any server or ban users who violate these terms.</li>
     <li>You may remove the Bot from your server at any time.</li>
+    <li>Termination does not affect license grants already made for published data.</li>
   </ul>
 
-  <h2>11. Changes</h2>
-  <p>We may update these terms. Changes will be reflected in the "Last updated" date. Continued use after changes constitutes acceptance.</p>
+  <h2>12. Governing law</h2>
+  <p>These terms are governed by the laws of the State of New Mexico, United States.</p>
 
-  <h2>12. Contact</h2>
-  <p>For questions about these terms:</p>
+  <h2>13. Changes</h2>
+  <p>We may update these terms. Changes will be reflected in the "Last updated" date. If we make material changes, we will notify active users through the Bot or participant portal. Continued use after changes constitutes acceptance.</p>
+
+  <h2>14. Contact</h2>
   <ul>
-    <li>GitHub: <a href="https://github.com/sessionhelper/ttrpg-collector">sessionhelper/ttrpg-collector</a></li>
-    <li>Email: <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a></li>
+    <li><strong>General inquiries:</strong> <a href="mailto:admin@sessionhelper.com">admin@sessionhelper.com</a></li>
+    <li><strong>Data requests:</strong> <a href="mailto:data@sessionhelper.com">data@sessionhelper.com</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/sessionhelper/ttrpg-collector">sessionhelper/ttrpg-collector</a></li>
   </ul>
 </main>
 
